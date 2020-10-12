@@ -50,7 +50,8 @@ int main(){
         printf("Filename requested by client = %s\n",msg_buff);
 
         
-        
+        if (access( msg_buff, F_OK) != -1 ) { 
+            printf("File exist!");
             FILE *fp = fopen(msg_buff,"rb");
             
             while (1)
@@ -70,8 +71,11 @@ int main(){
                 }
 
             }
-            
-
+        } 
+        else {
+            printf("File doesn't exist")
+            write(connfd, FLAG, sizeof(FLAG));
+        }
 
 
     }
