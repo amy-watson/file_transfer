@@ -21,4 +21,5 @@ when the file is finished reading, send a **END** signal to client & disconnect
 * Client saves the data until an **END** signal is received
 
 ### To do
-
+1. Restart recieve buffer in client.c, currently the script doesn't ends as it doesn't receives END signal
+2.
