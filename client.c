@@ -19,7 +19,8 @@ int main(){
 
     memset(revcBuff, '0', sizeof(revcBuff));
     struct sockaddr_in serv_addr;
-
+    
+    // Open a socket
     if((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0){
         printf("Error creating socket");
         return 1;
@@ -28,7 +29,8 @@ int main(){
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(20000);
     serv_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-
+    
+    // Connect socket with server
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0){
         printf("Failed to connect\n");
         return 1;
@@ -67,7 +69,7 @@ int main(){
 
         fwrite(revcBuff, 1, bytesReceived, fp);
 
-        // 
+        bzero(recvBuff, sizeof(recvBuff));
 
         bytesReceived = read(sockfd, revcBuff, sizeof(revcBuff));
          
