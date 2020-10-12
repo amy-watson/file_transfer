@@ -22,4 +22,4 @@ when the file is finished reading, send a **END** signal to client & disconnect
 
 ### To do
 1. Restart recieve buffer in client.c, currently the script doesn't ends as it doesn't receives END signal
-2.
+2. Check if file exist in server.c // if not, send a new signal
